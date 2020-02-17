@@ -1,0 +1,13 @@
+
+@import '../../styles/variables';
+
+#{$root} {
+  
+  .container {
+    padding: 72px 0;
+
+    @media #{$desktop_break} {
+      padding: 35px 25px;
+    }
+  }
+}
