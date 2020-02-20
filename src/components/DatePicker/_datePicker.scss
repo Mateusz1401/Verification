@@ -1,7 +1,8 @@
 @import '../../styles/variables';
 
-.custom-input {
-  min-width: 300px;
+.custom-datePicker {
+  display: flex;
+  flex-direction: column;
   margin-bottom: 6px;
 
   label {

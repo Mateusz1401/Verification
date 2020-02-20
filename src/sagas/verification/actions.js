@@ -1,14 +1,14 @@
 
 import * as types from './constants';
 
-export const verifyRequest = () => (
-  { type: types.VERIFY_REQUEST }
+export const verifyRequest = data => (
+  { type: types.VERIFY_REQUEST, payload: data }
 );
 
-export const verificationDone = payload => (
-  { type: types.VERIFICATION_DONE, payload }
+export const verificationDone = data => (
+  { type: types.VERIFICATION_DONE, payload: data }
 );
 
-export const verificationFailed = error => (
-  { type: types.VERIFICATION_FAILED, error }
+export const verificationFailed = errors => (
+  { type: types.VERIFICATION_FAILED, payload: errors }
 );

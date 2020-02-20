@@ -4,15 +4,15 @@ import * as types from './constants';
 const initialState = {
   data: [],
   errors: {},
-  isLoading: false,
-  isError: null
+  isLoading: false
 };
 
 const actions = {
-  [types.VERIFY_REQUEST]: state => {
+  [types.VERIFY_REQUEST]: (state, { payload }) => {
     const data = {
       ...state,
-      isLoading: true
+      isLoading: true,
+      data: payload
     };
 
     return { ...data };
@@ -26,11 +26,11 @@ const actions = {
 
     return { ...data };
   },
-  [types.VERIFICATION_FAILED]: state => {
+  [types.VERIFICATION_FAILED]: (state, { payload }) => {
     const data = {
       ...state,
       isLoading: false,
-      isError: true
+      errors: payload
     };
 
     return { ...data };

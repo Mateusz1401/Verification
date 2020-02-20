@@ -1,17 +1,19 @@
 
 import { put, takeEvery } from 'redux-saga/effects';
+import axios from 'axios';
 
 import * as types from './constants';
 import * as actions from './actions';
+import { api } from '../../api';
 
-function* verifyData() {
+function* verifyData({ payload }) {
   try {
-    // const data = yield call(fetch, api.verifyData);
+    const response = yield axios.post(api.verifyData, { payload });
 
-    // yield put(actions.verificationDone(data));
+    yield put(actions.verificationDone(response));
   } catch (err) {
     const { response } = err;
-    yield put(actions.verificationFailed(response.data));
+    yield put(actions.verificationFailed(response));
   }
 }
 
