@@ -7,14 +7,15 @@ import LoadPage from './Loading';
 const NotFoundPage = lazy(() => import('./NotFound'));
 
 export const routes = {
-  root: new PathLink('/')
+  root: new PathLink('/'),
+  notFound: new PathLink('*')
 };
 
 const Routes = () => (
   <Suspense fallback={<LoadPage />}>
     <Switch>
       <Route exact path={routes.root.path} component={HomePage} />
-      <Route path="*" component={NotFoundPage} />
+      <Route path={routes.notFound.path} component={NotFoundPage} />
     </Switch>
   </Suspense>
 );

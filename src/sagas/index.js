@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-import verification from './verification/reducers';
+import event from './event/reducers';
 
 export default combineReducers({
-  verification
+  event
 });

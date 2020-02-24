@@ -1,9 +1,9 @@
 import { all } from 'redux-saga/effects';
 
-import { getVerificationSaga } from './sagas/verification/saga';
+import { getEventSaga } from './sagas/event/saga';
 
 export function* rootSaga() {
   yield all([
-    getVerificationSaga
+    getEventSaga
   ]);
 }

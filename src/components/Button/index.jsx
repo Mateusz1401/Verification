@@ -4,20 +4,29 @@ import { Button } from 'antd';
 
 import './_button.scss';
 
-const ButtonCustom = ({ title, onClick, htmlType }) => (
+const ButtonCustom = ({ title, onClick, htmlType, disabled }) => (
   <div className="custom-button">
-    <Button htmlType={htmlType} type="primary" onClick={onClick}>{title}</Button>
+    <Button
+      onClick={onClick}
+      disabled={disabled}
+      htmlType={htmlType}
+      type="primary"
+    >
+      {title}
+    </Button>
   </div>
 );
 
 ButtonCustom.propTypes = {
   title: PropTypes.string.isRequired,
   onClick: PropTypes.func,
-  htmlType: PropTypes.string
+  htmlType: PropTypes.string,
+  disabled: PropTypes.bool
 };
 
 ButtonCustom.defaultProps = {
-  htmlType: 'button'
+  htmlType: 'button',
+  disabled: false
 };
 
 export default ButtonCustom;

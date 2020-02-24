@@ -5,7 +5,7 @@ import { Input, Icon } from 'antd';
 import ErrorMessage from '../Error';
 import './_input.scss';
 
-const InputCustom = ({ placeholder, value, onChange, icon, error, name, label }) => (
+const InputCustom = ({ placeholder, value, onChange, icon, error, name, label, type }) => (
   <div className="custom-input">
     {label && <label>{label}</label>}
     <Input
@@ -13,6 +13,7 @@ const InputCustom = ({ placeholder, value, onChange, icon, error, name, label })
       value={value}
       onChange={onChange}
       name={name}
+      type={type}
       prefix={<Icon type={icon} />}
     />
     <ErrorMessage errorMessage={error} />
@@ -26,14 +27,16 @@ InputCustom.propTypes = {
   icon: PropTypes.string,
   error: PropTypes.string,
   name: PropTypes.string,
-  label: PropTypes.string
+  label: PropTypes.string,
+  type: PropTypes.string
 };
 
 InputCustom.defaultProps = {
   placeholder: '',
   icon: '',
   name: '',
-  label: ''
+  label: '',
+  type: 'text'
 };
 
 export default InputCustom;

@@ -1,12 +1,12 @@
 import React from 'react';
-import { Spin } from 'antd';
 
+import Spinner from '../../components/Spinner';
 import 'antd/dist/antd.css';
 import './_loading.scss';
 
 const Loading = () => (
   <div className="loading">
-    <Spin tip="Loading..." />
+    <Spinner spin tip="Loading..." />
   </div>
 );
 

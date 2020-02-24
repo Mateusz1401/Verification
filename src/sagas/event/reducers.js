@@ -3,12 +3,12 @@ import * as types from './constants';
 
 const initialState = {
   data: [],
-  errors: {},
+  errorsApi: {},
   isLoading: false
 };
 
 const actions = {
-  [types.VERIFY_REQUEST]: (state, { payload }) => {
+  [types.CREATE_EVENT_REQUEST]: (state, { payload }) => {
     const data = {
       ...state,
       isLoading: true,
@@ -17,7 +17,7 @@ const actions = {
 
     return { ...data };
   },
-  [types.VERIFICATION_DONE]: (state, { payload }) => {
+  [types.CREATE_EVENT_DONE]: (state, { payload }) => {
     const data = {
       ...state,
       isLoading: false,
@@ -26,11 +26,11 @@ const actions = {
 
     return { ...data };
   },
-  [types.VERIFICATION_FAILED]: (state, { payload }) => {
+  [types.CREATE_EVENT_FAILED]: (state, { payload }) => {
     const data = {
       ...state,
       isLoading: false,
-      errors: payload
+      errorsApi: payload
     };
 
     return { ...data };

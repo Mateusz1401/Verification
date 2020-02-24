@@ -8,7 +8,13 @@ import './_datePicker.scss';
 const DatePickerCustom = ({ value, onChange, error, name, label }) => (
   <div className="custom-datePicker">
     {label && <label>{label}</label>}
-    <DatePicker name={name} onChange={onChange} value={value} />
+    <DatePicker
+      format="YYYY-MM-DD HH:mm"
+      name={name}
+      onChange={onChange}
+      value={value}
+      showTime
+    />
     <ErrorMessage errorMessage={error} />
   </div>
 );
