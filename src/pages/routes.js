@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from 'react';
-import { Route, Switch, withRouter } from 'react-router-dom';
+import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import PathLink from '../utils/PathLinkUrl/PathLink';
 
 import HomePage from './Home';
@@ -12,12 +12,14 @@ export const routes = {
 };
 
 const Routes = () => (
-  <Suspense fallback={<LoadPage />}>
-    <Switch>
-      <Route exact path={routes.root.path} component={HomePage} />
-      <Route path={routes.notFound.path} component={NotFoundPage} />
-    </Switch>
-  </Suspense>
+  <Router>
+    <Suspense fallback={<LoadPage />}>
+      <Switch>
+        <Route exact path={routes.root.path} component={HomePage} />
+        <Route path={routes.notFound.path} component={NotFoundPage} />
+      </Switch>
+    </Suspense>
+  </Router>
 );
 
-export default withRouter(Routes);
+export default Routes;

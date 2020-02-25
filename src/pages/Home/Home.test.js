@@ -7,13 +7,21 @@ import { act } from 'react-dom/test-utils';
 import configureMockStore from 'redux-mock-store';
 import pretty from 'pretty';
 
-import App from './App';
+import Home from '.';
 
 const mockStore = configureMockStore();
 let container = null;
+let store;
 beforeEach(() => {
   container = document.createElement('div');
   document.body.appendChild(container);
+  store = mockStore({
+    event: {
+      data: [],
+      errorsApi: {},
+      isLoading: false
+    }
+  });
 });
 
 afterEach(() => {
@@ -22,18 +30,11 @@ afterEach(() => {
   container = null;
 });
 
-it('render AppComponent', () => {
-  const store = mockStore({
-    event: {
-      data: [],
-      errorsApi: {},
-      isLoading: false
-    }
-  });
+it('render HomePage', () => {
   act(() => {
     render(
       <Provider store={store}>
-        <App />
+        <Home />
       </Provider>, container);
   });
   expect(pretty(container.innerHTML));
