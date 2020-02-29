@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useFormik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -14,7 +14,7 @@ const Home = () => {
   const dispatch = useDispatch();
   const { isLoading, errorsApi } = useSelector(s => s.event);
 
-  const { handleSubmit, handleChange, values, errors, setFieldValue } = useFormik({
+  const { handleSubmit, handleChange, values, errors, setFieldValue, setErrors } = useFormik({
     initialValues: {
       firstName: '',
       lastName: '',
@@ -27,21 +27,25 @@ const Home = () => {
     }
   });
 
-  const renderInput = (name, label, value, error, errorApi, icon, type) => (
-    <Input name={name} label={label} onChange={handleChange} value={value} error={error ? error : errorApi} icon={icon} type={type} />
+  useEffect(() => {
+    setErrors({ ...errors, ...errorsApi });
+  }, [errorsApi]); // eslint-disable-line
+
+  const renderInput = (name, label, value, error, icon, type) => (
+    <Input name={name} label={label} onChange={handleChange} value={value} error={error} icon={icon} type={type} />
   );
 
   return (
     <div className="home">
       <form className="home-form" onSubmit={handleSubmit}>
-        { renderInput('firstName', 'First Name *', values.firstName, errors.firstName, errorsApi.firstName, 'user' ) }
-        { renderInput('lastName', 'Last Name *', values.lastName, errors.lastName, errorsApi.lastName, 'user' ) }
-        { renderInput('email', 'Email *', values.email, errors.email, errorsApi.email, 'mail', 'email' ) }
+        { renderInput('firstName', 'First Name *', values.firstName, errors.firstName, 'user' ) }
+        { renderInput('lastName', 'Last Name *', values.lastName, errors.lastName, 'user' ) }
+        { renderInput('email', 'Email *', values.email, errors.email, 'mail', 'email' ) }
         <DatePicker
           name="eventDate"
           label="Event Date *"
           value={values.eventDate}
-          error={errors.eventDate ? errors.eventDate : errorsApi.eventDate}
+          error={errors.eventDate}
           onChange={date => setFieldValue('eventDate', date)}
         />
         <Button disabled={isLoading} htmlType="submit" title="Verify Now" />
