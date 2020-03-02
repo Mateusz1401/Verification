@@ -1,0 +1,15 @@
+
+@import '../../styles/variables';
+
+#{$root} {
+  
+  .container {
+    padding: 72px 0;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(13,128,193,1) 0%, rgba(108,141,180,1) 58%, rgba(41,176,204,1) 95%);
+
+    @media #{$desktop_break} {
+      padding: 35px 25px;
+    }
+  }
+}

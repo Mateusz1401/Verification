@@ -1,0 +1,20 @@
+  
+@import '../../styles/variables';
+
+#{$root} {
+
+  .home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    &-form {
+      border: 1px solid $accent-2;
+      border-radius: 8px;
+      padding: 40px 80px;
+      background: $white;
+    }
+  }
+}
+  

@@ -1,0 +1,18 @@
+  
+@import '../../styles/variables';
+
+#{$root} {
+
+  .layout {
+    .app-container {
+      display: flex;
+
+      .content {
+        width: 100%;
+        min-height: 100vh;
+        background-color: $white;
+      }
+    }
+  }
+}
+  

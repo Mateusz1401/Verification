@@ -1,0 +1,27 @@
+  
+@import '../../styles/variables';
+
+#{$root} {
+
+  .loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    .ant-spin-dot {
+      font-size: 35px;
+      margin-bottom: 35px;
+
+      i {
+        background-color: $white;
+      }
+    }
+
+    .ant-spin-text {
+      font-size: 22px;
+      color: $white;
+    }
+  }
+}
+  

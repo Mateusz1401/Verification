@@ -1,0 +1,10 @@
+@import '../../styles/variables';
+
+.custom-input {
+  min-width: 300px;
+  margin-bottom: 6px;
+
+  label {
+    font-weight: 600;
+  }
+}
