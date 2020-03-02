@@ -25,7 +25,7 @@ afterEach(() => {
 it('render AppComponent', () => {
   const store = mockStore({
     event: {
-      data: [],
+      data: {},
       errorsApi: {},
       isLoading: false
     }

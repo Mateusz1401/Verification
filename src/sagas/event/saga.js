@@ -9,14 +9,14 @@ import { api } from '../../api';
 
 function* createEvent({ payload }) {
   try {
-    const { data } = yield axios.post(api.createEvent, {
+    yield axios.post(api.createEvent, {
       firstName: payload.firstName,
       lastName: payload.lastName,
       email: payload.email,
       eventDate: payload.eventDate.utc().format()
     });
 
-    yield put(actions.createEventDone(data));
+    yield put(actions.createEventDone('SUCCESS'));
   } catch (err) {
     const { response: { data } } = err;
     const messages = data.message;

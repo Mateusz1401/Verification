@@ -13,6 +13,7 @@ const InputCustom = ({ placeholder, value, onChange, icon, error, name, label, t
       value={value}
       onChange={onChange}
       name={name}
+      id={name}
       type={type}
       prefix={<Icon type={icon} />}
     />
